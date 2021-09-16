@@ -159,15 +159,17 @@ if __name__ == "__main__":
 	cn = Connector(pach	,{"email": email, "password": password})
 	#headers = cn.headers.copy()
 	#headers["X-Request-ID"]=str(uuid.uuid1())
-	ae = APIexpl(cn)
+	#ae = APIexpl(cn)
 
 	co = Concent(cn)
 	response = co.concent("tpp","tpp_private",acc_list,email)
 	#https://openbanking.siauliubankas.lt/psd2//v1//consents/C_ID_123456789/authorisations ???
 
 
-	#dmp = json.dumps(ae.cr_json(acc_list)).encode()
-	#dk = hashlib.sha256(dmp).digest()
+	#dmp = json.dumps(Concent.cr_json(None,acc_list)).encode()
+	#print(dmp)
+	#dk = hashlib.sha256(dmp).hexdigest()
+	#print(dk)
 	#dk = base64.b64encode(bytes(dk,"utf-8"))
 	#print(dk)
 	
@@ -175,6 +177,6 @@ if __name__ == "__main__":
 	#response =ae.transactions(ConsentID,"ACC_ID_123456789")
 	#response =ae.transaction(ConsentID,ACC_ID,"TRANID123456789")
 	#response = cn.GET("/psd2/v1/consents/C_ID_123456789/authorisations",headers)
-	
+
 	print(response.status_code)
 	print(response.text)	
